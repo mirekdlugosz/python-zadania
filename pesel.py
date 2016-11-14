@@ -125,11 +125,13 @@ class PESEL():
         Returns:
             None
         """
-        century = self.date.year // 100 * 100
+        century, year_value = divmod(self.date.year, 100)
+        year_value = "{:02d}".format(year_value)
+
+        century *= 100
         month_value = self.date.month + self.__centuries.index(century) * 20
         month_value = "{:02d}".format(month_value)
         
-        year_value  = self.date.strftime("%y")
         day_value   = self.date.strftime("%d")
 
         sequence = "{:04d}".format(random.randint(0, 9999))
