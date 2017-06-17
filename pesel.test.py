@@ -81,7 +81,7 @@ class TestFromDate(unittest.TestCase):
         with self.assertRaises(ValueError):
             PESEL().from_date(year=2016, month=11, day=0)
 
-    def test_invalid_day_below(self):
+    def test_invalid_day_above(self):
         with self.assertRaises(ValueError):
             PESEL().from_date(year=2016, month=11, day=32)
 
